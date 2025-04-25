@@ -3,194 +3,303 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buffalo Selling Website</title>
+  <title>Buffalo Marketplace</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(to right, #FFB6C1, #FFD700);
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     header {
       background-color: #333;
-      color: #fff;
-      padding: 10px 0;
-      text-align: center;
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
-    nav {
-      background-color: #444;
-      padding: 10px;
+
+    header h1 {
+      font-size: 36px;
       text-align: center;
+      font-family: 'Georgia', serif;
     }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
+
+    header nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    header nav a {
+      color: white;
+      font-size: 18px;
       text-decoration: none;
+      margin: 0 15px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
     }
-    .container {
-      width: 80%;
-      margin: 20px auto;
+
+    header nav a:hover {
+      background-color: #FFB6C1;
+      transform: scale(1.1);
     }
-    .buffalo-listings {
+
+    .content-section {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .buffalo-list {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
     }
-    .buffalo-card {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 15px;
-      width: calc(33.333% - 40px);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .buffalo-card img {
-      max-width: 100%;
-      border-radius: 5px;
-    }
-    .contact-form,
-    .upload-form {
-      background-color: #fff;
+
+    .buffalo-item {
+      background-color: white;
       padding: 20px;
-      border-radius: 5px;
-      margin-top: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .contact-form input,
-    .contact-form textarea,
-    .upload-form input,
-    .upload-form textarea {
+
+    .buffalo-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .buffalo-item img {
       width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .buffalo-item h3 {
+      font-size: 22px;
+      color: #333;
+    }
+
+    .buffalo-item p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    form label {
+      font-size: 18px;
+      margin: 10px 0 5px;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"] {
       padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ddd;
+      width: 100%;
+      margin-bottom: 15px;
+      border: 2px solid #ddd;
       border-radius: 5px;
+      font-size: 16px;
     }
-    .contact-form button,
-    .upload-form button {
+
+    input:focus {
+      border-color: #FFB6C1;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 20px;
       background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
+      color: white;
+      font-size: 18px;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
+    button:hover {
+      background-color: #FFB6C1;
+    }
+
     footer {
       background-color: #333;
-      color: #fff;
+      color: white;
+      padding: 20px;
       text-align: center;
-      padding: 10px 0;
-      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    footer p {
+      margin: 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Buffalo Selling Website</h1>
+    <div class="container">
+      <h1>Buffalo Marketplace</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#list-buffalo">List a Buffalo</a>
+      </nav>
+    </div>
   </header>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#listings">Listings</a>
-    <a href="#upload">Upload</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="container">
-    <section id="home">
-      <h2>Welcome to Our Buffalo Selling Platform</h2>
-      <p>Find the best buffalo for sale from trusted sellers. Browse our listings and connect with sellers directly.</p>
-    </section>
-    <section id="listings">
-      <h2>Buffalo Listings</h2>
-      <div class="buffalo-listings">
-        <!-- Buffalo listings will appear here -->
+
+  <main>
+    <section id="home" class="content-section">
+      <div class="container">
+        <h2>Available Buffalos</h2>
+        <div id="buffalo-list" class="buffalo-list">
+          <!-- Buffalo items will appear here -->
+        </div>
       </div>
     </section>
-    <section id="upload">
-      <h2>Upload Your Buffalo</h2>
-      <div class="upload-form">
-        <form id="uploadForm">
-          <input type="text" id="buffaloName" placeholder="Mobile Number" required />
-          <input type="number" id="buffaloAge" placeholder="Age (in years)" required />
-          <input type="number" id="buffaloPrice" placeholder="Price (in rupees)" required />
-          <input type="text" id="buffaloLocation" placeholder="Location" required />
-          <input type="file" id="buffaloImage" accept="image/*" required />
-          <button type="submit">Upload Buffalo</button>
+
+    <section id="list-buffalo" class="content-section">
+      <div class="container">
+        <h2>List a Buffalo</h2>
+        <form id="listing-form">
+          <label for="buffalo-name">mobile no:</label>
+          <input type="text" id="buffalo-name" required placeholder="Enter mobile no">
+
+          <label for="buffalo-age">Age (Years):</label>
+          <input type="number" id="buffalo-age" required placeholder="Enter buffalo age">
+
+          <label for="buffalo-price">Price (rupees):</label>
+          <input type="number" id="buffalo-price" required placeholder="Enter buffalo price">
+
+          <label for="buffalo-image">Upload Image:</label>
+          <input type="file" id="buffalo-image" required accept="image/*">
+
+          <button type="submit">List Buffalo</button>
         </form>
       </div>
     </section>
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <div class="contact-form">
-        <form>
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </section>
-  </div>
+  </main>
+
   <footer>
-    <p>&copy; 2023 Buffalo Selling Website. All rights reserved.</p>
+    <p>&copy; 2025 Buffalo Marketplace. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    // Load listings on page load
-    window.onload = loadListings;
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 
-    document.getElementById("uploadForm").addEventListener("submit", function (e) {
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCOuRWlsmvPrfyA_HCkl3D1FDziiOLFr78",
+      authDomain: "buffaloselling.firebaseapp.com",
+      databaseURL: "https://buffaloselling-default-rtdb.firebaseio.com",
+      projectId: "buffaloselling",
+      storageBucket: "buffaloselling.firebasestorage.app",
+      messagingSenderId: "472809320185",
+      appId: "1:472809320185:web:e2a27474b57001f6d13c28",
+      measurementId: "G-3YN038T5C6"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    function loadBuffaloList() {
+      const container = document.getElementById('buffalo-list');
+      container.innerHTML = '<p>Loading buffalos...</p>';
+
+      database.ref('buffalos').once('value', (snapshot) => {
+        container.innerHTML = '';
+        if (!snapshot.exists()) {
+          container.innerHTML = '<p>No buffalos listed yet.</p>';
+          return;
+        }
+
+        snapshot.forEach(child => {
+          const buffalo = child.val();
+          const div = document.createElement('div');
+          div.className = 'buffalo-item';
+          div.innerHTML = `
+            <img src="${buffalo.image}" alt="Buffalo Image">
+            <h3>${buffalo.name}</h3>
+            <p>Age: ${buffalo.age} years</p>
+            <p>Price: rs${buffalo.price}</p>
+          `;
+          container.appendChild(div);
+        });
+      });
+    }
+
+    document.getElementById('listing-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      const name = document.getElementById("buffaloName").value;
-      const age = document.getElementById("buffaloAge").value;
-      const price = document.getElementById("buffaloPrice").value;
-      const location = document.getElementById("buffaloLocation").value;
-      const imageFile = document.getElementById("buffaloImage").files[0];
+      const name = document.getElementById('buffalo-name').value;
+      const age = document.getElementById('buffalo-age').value;
+      const price = document.getElementById('buffalo-price').value;
+      const imageFile = document.getElementById('buffalo-image').files[0];
 
-      if (!imageFile) {
-        alert("Please upload an image of the buffalo.");
+      if (!name || !age || !price || !imageFile) {
+        alert("Please fill in all fields!");
         return;
       }
 
       const reader = new FileReader();
-      reader.onload = function (event) {
+      reader.onload = function () {
+        const imageDataUrl = reader.result;
         const buffalo = {
           name,
-          age,
-          price,
-          location,
-          image: event.target.result
+          age: parseInt(age),
+          price: parseFloat(price),
+          image: imageDataUrl
         };
 
-        const buffaloData = JSON.parse(localStorage.getItem("buffaloListings")) || [];
-        buffaloData.push(buffalo);
-        localStorage.setItem("buffaloListings", JSON.stringify(buffaloData));
-
-        loadListings(); // Refresh listings on the page
-        document.getElementById("uploadForm").reset();
+        database.ref('buffalos').push(buffalo, (error) => {
+          if (error) {
+            alert("Error saving buffalo.");
+          } else {
+            alert("Buffalo listed successfully!");
+            document.getElementById('listing-form').reset();
+            loadBuffaloList();
+          }
+        });
       };
-
       reader.readAsDataURL(imageFile);
     });
 
-    function loadListings() {
-      const container = document.querySelector(".buffalo-listings");
-      container.innerHTML = "";
-
-      const buffaloData = JSON.parse(localStorage.getItem("buffaloListings")) || [];
-
-      buffaloData.forEach(buffalo => {
-        const card = document.createElement("div");
-        card.className = "buffalo-card";
-        card.innerHTML = 
-          <img src="${buffalo.image}" alt="Buffalo Image">
-          <h3>${buffalo.name}</h3>
-          <p>Age: ${buffalo.age} years</p>
-          <p>Price: ₹${buffalo.price}</p>
-          <p>Location: ${buffalo.location}</p>
-        ;
-        container.appendChild(card);
-      });
-    }
+    loadBuffaloList();
   </script>
 </body>
 </html>
+
